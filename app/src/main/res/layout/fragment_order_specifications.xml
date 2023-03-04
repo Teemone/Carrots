@@ -28,7 +28,7 @@
             android:textAppearance="@style/Title1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivVegetable"
-            tools:text="Quantity" />
+            android:text="@string/quantity" />
 
         <HorizontalScrollView
 
@@ -52,31 +52,31 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="true"
-                    tools:text="One" />
+                    android:text="1" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="Six" />
+                    android:text="6" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="Twelve" />
+                    android:text="12" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="Eighteen" />
+                    android:text="18" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="Twenty-four" />
+                    android:text="24" />
 
 
             </com.google.android.material.chip.ChipGroup>
@@ -91,7 +91,7 @@
             android:textAppearance="@style/Title1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
-            tools:text="@string/pickup_date" />
+            android:text="@string/pickup_date" />
 
         <HorizontalScrollView
 
@@ -114,24 +114,28 @@
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/c1"
                     android:checked="true"
                     tools:text="Tue, 28" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
+                    android:id="@+id/c2"
                     android:layout_height="wrap_content"
                     tools:text="Tue, 28" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
+                    android:id="@+id/c3"
                     android:layout_height="wrap_content"
                     tools:text="Tue, 28" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
+                    android:id="@+id/c4"
                     android:layout_height="wrap_content"
                     tools:text="Tue, 28" />
 
@@ -146,7 +150,7 @@
             android:textAppearance="@style/Subtitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView2"
-            tools:text="@string/same_day_pickup" />
+            android:text="@string/same_day_pickup" />
 
         <TextView
             android:id="@+id/tvSubtotal"
@@ -156,7 +160,7 @@
             android:textAppearance="@style/Title2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSameDayPickup"
-            tools:text="@string/subtotal" />
+            android:text="@string/subtotal" />
 
         <Button
             android:id="@+id/btnCancel"
@@ -178,13 +182,12 @@
             android:id="@+id/btnNext"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/varela"
-            android:textStyle="bold"
             android:layout_marginTop="@dimen/m10"
+            android:fontFamily="@font/varela"
             android:text="@string/next"
-            app:layout_constraintStart_toEndOf="@id/btnCancel"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnCancel"
             app:layout_constraintTop_toBottomOf="@+id/tvSubtotal" />
 
 
