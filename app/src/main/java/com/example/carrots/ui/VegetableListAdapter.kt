@@ -3,8 +3,10 @@ package com.example.carrots.ui
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.carrots.R
 
@@ -14,6 +16,7 @@ class VegetableListAdapter(private val items: ArrayList<Vegetable>):
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val ivImage: ImageView = itemView.findViewById(R.id.iv_vegetable)
         val tvName: TextView = itemView.findViewById(R.id.tv_name)
+        val btnAdd: Button = itemView.findViewById(R.id.btn_add)
     }
 
     /**
@@ -30,5 +33,13 @@ class VegetableListAdapter(private val items: ArrayList<Vegetable>):
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.ivImage.setImageResource(items[position].image)
         holder.tvName.text = items[position].name
+
+        holder.btnAdd.setOnClickListener {
+            val action = HomeFragmentDirections
+                .actionHomeFragmentToOrderSpecificationsFragment(id = position)
+            holder.itemView
+                .findNavController()
+                .navigate(action)
+        }
     }
 }
