@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Carrots</string>
+    <string name="cabbage">Cabbage</string>
+    <string name="carrot">Carrot</string>
+    <string name="cauliflower">Cauliflower</string>
+    <string name="green_peas">Green peas</string>
+    <string name="green_beans">Green beans</string>
+    <string name="broccoli">Broccoli</string>
+    <string name="cucumber">Cucumber</string>
+</resources>
