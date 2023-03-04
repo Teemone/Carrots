@@ -2,7 +2,7 @@ package com.example.carrots.ui
 
 import com.example.carrots.R
 
-val veggies = arrayListOf(
+val vegArrayList = arrayListOf(
     Vegetable(
         "Broccoli",
         R.drawable.broc,

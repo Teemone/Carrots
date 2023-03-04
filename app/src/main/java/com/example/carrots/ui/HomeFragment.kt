@@ -25,7 +25,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentHomeBinding.inflate(layoutInflater)
         return binding.root
     }
@@ -35,7 +35,7 @@ class HomeFragment : Fragment() {
 
         binding.recyclerViewVeggies.apply {
             layoutManager = GridLayoutManager(requireContext(), SPAN_COUNT)
-            adapter = VegetableListAdapter(veggies.apply { shuffle() })
+            adapter = VegetableListAdapter(sharedViewModel.veggies)
         }
 
     }
