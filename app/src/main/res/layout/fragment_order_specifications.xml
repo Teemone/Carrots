@@ -4,6 +4,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.carrots.model.VegViewModel" />
+
+        <variable
+            name="orderSpecsFragment"
+            type="com.example.carrots.ui.OrderSpecificationsFragment" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -147,10 +157,10 @@
             android:id="@+id/tvSameDayPickup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            tools:text="@string/same_day_pickup"
             android:textAppearance="@style/Subtitle"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView2"
-            android:text="@string/same_day_pickup" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView2" />
 
         <TextView
             android:id="@+id/tvSubtotal"
@@ -160,7 +170,7 @@
             android:textAppearance="@style/Title2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSameDayPickup"
-            android:text="@string/subtotal" />
+            android:text="@{@string/subtotal(viewModel.total)}" />
 
         <Button
             android:id="@+id/btnCancel"
