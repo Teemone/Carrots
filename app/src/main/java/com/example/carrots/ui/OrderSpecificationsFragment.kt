@@ -49,6 +49,7 @@ class OrderSpecificationsFragment : Fragment() {
         binding.ivVegetable.setImageResource(item.image)
         binding.viewModel = sharedViewModel
         binding.lifecycleOwner = viewLifecycleOwner
+        binding.orderSpecsFragment = this@OrderSpecificationsFragment
         tvSameDay = binding.tvSameDayPickup
         cgPickupDate = binding.cgPickupDate
         cgQuantity = binding.cgQuantity
@@ -107,22 +108,21 @@ class OrderSpecificationsFragment : Fragment() {
 
 
         }
+    }
 
-        /**
-         * Todo: Not implemented
-         */
-        fun next(){
-            findNavController().navigate(0)
-        }
+    /**
+     * Navigate to the next screen
+     */
+    fun next(){
+        findNavController()
+            .navigate(R.id.action_orderSpecificationsFragment_to_contactInformationFragment)
+    }
 
-        /**
-         * Todo: Not implemented
-         */
-        fun cancel(){
-            sharedViewModel.reset()
-            findNavController().navigate(0)
-        }
-
-
+    /**
+     * Cancel the order and return to the home fragment
+     */
+    fun cancel(){
+        sharedViewModel.reset()
+        findNavController().navigate(R.id.action_orderSpecificationsFragment_to_homeFragment)
     }
 }
