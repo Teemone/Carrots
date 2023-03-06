@@ -36,7 +36,8 @@ class VegetableListAdapter(private val items: ArrayList<Vegetable>):
 
         holder.btnAdd.setOnClickListener {
             val action = HomeFragmentDirections
-                .actionHomeFragmentToOrderSpecificationsFragment(id = position)
+                .actionHomeFragmentToOrderSpecificationsFragment(id = position, items[position].name)
+
             holder.itemView
                 .findNavController()
                 .navigate(action)
