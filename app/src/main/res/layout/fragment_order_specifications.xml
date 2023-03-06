@@ -41,7 +41,6 @@
             android:text="@string/quantity" />
 
         <HorizontalScrollView
-
             android:id="@+id/horizontalScrollView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -180,6 +179,7 @@
             android:textStyle="bold"
             android:text="@string/cancel"
             android:fontFamily="@font/varela"
+            android:onClick="@{() -> orderSpecsFragment.cancel()}"
             app:layout_constraintBottom_toBottomOf="@+id/btnNext"
             app:layout_constraintEnd_toStartOf="@+id/btnNext"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
@@ -195,6 +195,7 @@
             android:layout_marginTop="@dimen/m10"
             android:fontFamily="@font/varela"
             android:text="@string/next"
+            android:onClick="@{() -> orderSpecsFragment.next()}"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/btnCancel"
