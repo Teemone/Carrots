@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeFragment">
 
@@ -14,10 +15,18 @@
     </fragment>
     <fragment
         android:id="@+id/orderSpecificationsFragment"
-        android:name="com.example.carrots.OrderSpecificationsFragment"
+        android:name="com.example.carrots.ui.OrderSpecificationsFragment"
         android:label="OrderSpecificationsFragment" >
         <argument
             android:name="id"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_orderSpecificationsFragment_to_contactInformationFragment"
+            app:destination="@id/contactInformationFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/contactInformationFragment"
+        android:name="com.example.carrots.ui.ContactInformationFragment"
+        android:label="fragment_contact_information"
+        tools:layout="@layout/fragment_contact_information" />
 </navigation>
