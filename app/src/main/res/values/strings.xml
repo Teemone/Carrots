@@ -16,4 +16,10 @@
     <string name="total">Total %s</string>
     <string name="send_order">Send order</string>
     <string name="image_of_vegetable">An image of a vegetable</string>
+    <string name="fragment_label">{name}</string>
+    <string name="contact_info">Contact information</string>
+    <string name="address">Delivery address</string>
+    <string name="name">Name</string>
+    <string name="phone">Phone number</string>
+    <string name="provide_details">Please provide the missing details</string>
 </resources>
