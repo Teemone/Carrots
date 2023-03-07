@@ -21,5 +21,7 @@
     <string name="address">Delivery address</string>
     <string name="name">Name</string>
     <string name="phone">Phone number</string>
+    <string name="vegetable">Vegetable</string>
+    <string name="order_summary">Vegetable</string>
     <string name="provide_details">Please provide the missing details</string>
 </resources>
