@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -26,7 +25,7 @@ class ContactInformationFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentContactInformationBinding.inflate(layoutInflater)
+        binding = FragmentContactInformationBinding.inflate(inflater)
         return binding.root
     }
 
@@ -92,16 +91,21 @@ class ContactInformationFragment : Fragment() {
     /**
      * Navigate to the next screen (if editTexts are populated as expected)
      */
-    fun next(){
-        if (handleEditText())
-            Toast.makeText(requireContext(), "Complete", Toast.LENGTH_SHORT).show()
-//            findNavController().navigate(0)
+    fun next() {
+        if (handleEditText()) {
+            sharedViewModel.setName(binding.etName.text.toString())
+            sharedViewModel.setPhoneNumber(binding.etPhoneNumber.text.toString())
+            sharedViewModel.setAddress(binding.etAddress.text.toString())
+
+            val action = ContactInformationFragmentDirections.actionContactInformationFragmentToOrderSummaryFragment()
+            findNavController().navigate(action)
+        }
     }
 
     /**
      * Cancel the order and return to the home fragment
      */
-    fun cancel(){
+    fun cancel() {
         sharedViewModel.reset()
         findNavController()
             .navigate(R.id.action_contactInformationFragment_to_homeFragment)
@@ -110,7 +114,7 @@ class ContactInformationFragment : Fragment() {
     /**
      * Returns if the editText matches criteria
      */
-    private fun isValid(view: View): Boolean{
+    private fun isValid(view: View): Boolean {
         val editText = view as TextInputEditText
         return editText.text != null && editText.length() >= 2
     }
@@ -118,7 +122,7 @@ class ContactInformationFragment : Fragment() {
     /**
      * Sets the error attribute of the textInputLayout
      */
-    private fun setError(v: View){
+    private fun setError(v: View) {
         val til = v as TextInputLayout
         til.error = getString(R.string.provide_details)
     }
@@ -126,7 +130,7 @@ class ContactInformationFragment : Fragment() {
     /**
      * Clears textInputLayout error
      */
-    private fun clearError(v: View){
+    private fun clearError(v: View) {
         val til = v as TextInputLayout
         til.error = null
     }
