@@ -18,13 +18,24 @@ class VegViewModel: ViewModel() {
     private var _total = MutableLiveData<String>()
     val total: LiveData<String> = _total
 
-    val pickupDates = returnPickupDates()
-
     private var _quantity = MutableLiveData<Int>()
     val quantity: LiveData<Int> = _quantity
 
     private var _date = MutableLiveData<String>()
     val date: LiveData<String> = _date
+
+    private var _name = MutableLiveData<String>()
+    val name: LiveData<String> = _name
+
+    private var _phoneNumber = MutableLiveData<String>()
+    val phoneNumber: LiveData<String> = _phoneNumber
+
+    private var _address = MutableLiveData<String>()
+    val address: LiveData<String> = _address
+
+    val pickupDates = returnPickupDates()
+
+
 
     init {
         reset()
@@ -39,6 +50,21 @@ class VegViewModel: ViewModel() {
         _date.value = pickupDates[0]
         _quantity.value = 1
         _total.value = ""
+        _name.value = ""
+        _phoneNumber.value = ""
+        _address.value = ""
+    }
+
+    fun setName(name: String){
+        _name.value = name
+    }
+
+    fun setPhoneNumber(phone: String){
+        _phoneNumber.value = phone
+    }
+
+    fun setAddress(address: String){
+        _address.value = address
     }
 
     fun setQuantity(value: Int){
