@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.carrots.model.VegViewModel" />
+
+        <variable
+            name="orderSummary"
+            type="com.example.carrots.ui.OrderSummaryFragment" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/p10">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.OrderSummaryFragment">
+
+            <TextView
+                android:id="@+id/tvVegetable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/vegetable"
+                android:textAppearance="@style/Title1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvVegetableName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m10"
+                android:text="@{viewModel.name}"
+                android:textSize="@dimen/defaultTextSize"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvVegetable"
+                tools:text="Cabbage" />
+
+            <TextView
+                android:id="@+id/tvQuantityText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m20"
+                android:text="@string/quantity"
+                android:textAppearance="@style/Title1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvVegetableName" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m10"
+                android:layout_marginBottom="@dimen/m10"
+                app:layout_constraintTop_toBottomOf="@id/tvVegetableName" />
+
+            <TextView
+                android:id="@+id/tvQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m10"
+                android:text="@{viewModel.quantity.toString()}"
+                android:textSize="@dimen/defaultTextSize"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvQuantityText"
+                tools:text="12" />
+
+            <TextView
+                android:id="@+id/tvPickupDateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m20"
+                android:text="@string/pickup_date"
+                android:textAppearance="@style/Title1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvQuantity" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/materialDivider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m10"
+                app:layout_constraintTop_toBottomOf="@id/tvQuantity" />
+
+            <TextView
+                android:id="@+id/tvPickupDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m10"
+                android:text="@{viewModel.date}"
+                android:textSize="@dimen/defaultTextSize"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvPickupDateText"
+                tools:text="Tue, Mar 2" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/materialDivider2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m10"
+                app:layout_constraintTop_toBottomOf="@id/tvPickupDate" />
+
+            <TextView
+                android:id="@+id/tvTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m10"
+                android:text="@{@string/total(viewModel.total)}"
+                android:textAppearance="@style/Title2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/materialDivider2"
+                tools:text="@string/total"
+
+                />
+
+            <Button
+                android:id="@+id/btnSendOrder"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m10"
+                android:fontFamily="@font/varela"
+                android:onClick="@{() -> orderSummary.sendOrder()}"
+                android:text="@string/send_order"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTotal"
+                tools:layout_editor_absoluteY="243dp" />
+
+            <Button
+                android:id="@+id/btnCancel"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m10"
+                android:fontFamily="@font/varela"
+                android:onClick="@{() -> orderSummary.cancel()}"
+                android:text="@string/cancel"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnSendOrder" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>
