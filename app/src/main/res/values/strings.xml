@@ -28,4 +28,11 @@
         Vegetable: %1$s\nQuantity: %2$s\nPickup date: %3$s\nPhone number: %4$s\nAddress: %5$s\n\nThanks.
     </string>
     <string name="provide_details">Please provide the missing details</string>
+    <string name="image_of_a_vegetable">Image of a vegetable</string>
+    <string name="purchase_a_vegetable_button">Purchase a vegetable button</string>
+    <string name="_1">1</string>
+    <string name="_6">6</string>
+    <string name="_12">12</string>
+    <string name="_18">18</string>
+    <string name="_24">24</string>
 </resources>
