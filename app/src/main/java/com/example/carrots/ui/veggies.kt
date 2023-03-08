@@ -7,7 +7,7 @@ val vegArrayList = arrayListOf(
         "Broccoli",
         R.drawable.broc,
 
-    ),
+        ),
     Vegetable(
         "Carrot",
         R.drawable.car,
