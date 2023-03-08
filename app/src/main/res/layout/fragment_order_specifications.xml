@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.example.carrots.model.VegViewModel" />
@@ -23,22 +24,22 @@
             android:id="@+id/ivVegetable"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            tools:src="@drawable/cab"
-            android:scaleType="centerCrop"
             android:contentDescription="@string/image_of_vegetable"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/cab" />
 
         <TextView
             android:id="@+id/tvQuantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/m10"
+            android:text="@string/quantity"
             android:textAppearance="@style/Title1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivVegetable"
-            android:text="@string/quantity" />
+            app:layout_constraintTop_toBottomOf="@id/ivVegetable" />
 
         <HorizontalScrollView
             android:id="@+id/horizontalScrollView"
@@ -61,31 +62,31 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="true"
-                    android:text="1" />
+                    android:text="@string/_1" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="6" />
+                    android:text="@string/_6" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="12" />
+                    android:text="@string/_12" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="18" />
+                    android:text="@string/_18" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="24" />
+                    android:text="@string/_24" />
 
 
             </com.google.android.material.chip.ChipGroup>
@@ -97,10 +98,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/m10"
+            android:text="@string/pickup_date"
             android:textAppearance="@style/Title1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
-            android:text="@string/pickup_date" />
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
 
         <HorizontalScrollView
 
@@ -120,31 +121,31 @@
                 app:singleSelection="true">
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/c1"
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/c1"
                     android:checked="true"
                     tools:text="Tue, 28" />
 
                 <com.google.android.material.chip.Chip
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
-                    android:layout_width="wrap_content"
                     android:id="@+id/c2"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     tools:text="Tue, 28" />
 
                 <com.google.android.material.chip.Chip
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
-                    android:layout_width="wrap_content"
                     android:id="@+id/c3"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     tools:text="Tue, 28" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/c4"
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
-                    android:id="@+id/c4"
                     android:layout_height="wrap_content"
                     tools:text="Tue, 28" />
 
@@ -156,36 +157,36 @@
             android:id="@+id/tvSameDayPickup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="@string/same_day_pickup"
             android:textAppearance="@style/Subtitle"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView2" />
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView2"
+            tools:text="@string/same_day_pickup" />
 
         <TextView
             android:id="@+id/tvSubtotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/m20"
+            android:text="@{@string/subtotal(viewModel.total)}"
             android:textAppearance="@style/Title2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSameDayPickup"
-            android:text="@{@string/subtotal(viewModel.total)}" />
+            app:layout_constraintTop_toBottomOf="@id/tvSameDayPickup" />
 
         <Button
             android:id="@+id/btnCancel"
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:text="@string/cancel"
+            android:layout_marginEnd="@dimen/m10"
             android:fontFamily="@font/varela"
             android:onClick="@{() -> orderSpecsFragment.cancel()}"
+            android:text="@string/cancel"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/btnNext"
             app:layout_constraintEnd_toStartOf="@+id/btnNext"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/btnNext"
-            android:layout_marginEnd="@dimen/m10"
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
@@ -194,8 +195,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/m10"
             android:fontFamily="@font/varela"
-            android:text="@string/next"
             android:onClick="@{() -> orderSpecsFragment.next()}"
+            android:text="@string/next"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/btnCancel"
