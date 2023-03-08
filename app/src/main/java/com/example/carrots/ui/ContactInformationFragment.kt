@@ -24,7 +24,7 @@ class ContactInformationFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentContactInformationBinding.inflate(inflater)
         return binding.root
     }
@@ -97,7 +97,8 @@ class ContactInformationFragment : Fragment() {
             sharedViewModel.setPhoneNumber(binding.etPhoneNumber.text.toString())
             sharedViewModel.setAddress(binding.etAddress.text.toString())
 
-            val action = ContactInformationFragmentDirections.actionContactInformationFragmentToOrderSummaryFragment()
+            val action =
+                ContactInformationFragmentDirections.actionContactInformationFragmentToOrderSummaryFragment()
             findNavController().navigate(action)
         }
     }
