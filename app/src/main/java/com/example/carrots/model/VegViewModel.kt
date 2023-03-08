@@ -11,7 +11,7 @@ import java.util.*
 const val VEGETABLE_PRICE = 3.0
 const val SAME_DAY_PICKUP_PRICE = 1.25
 
-class VegViewModel: ViewModel() {
+class VegViewModel : ViewModel() {
     private var _veggies = vegArrayList.apply { shuffle() }
     val veggies = _veggies
 
@@ -33,8 +33,10 @@ class VegViewModel: ViewModel() {
     private var _address = MutableLiveData<String>()
     val address: LiveData<String> = _address
 
-    val pickupDates = returnPickupDates()
+    private var _vegetableName = MutableLiveData<String>()
+    val vegetableName: LiveData<String> = _vegetableName
 
+    val pickupDates = returnPickupDates()
 
 
     init {
@@ -46,46 +48,53 @@ class VegViewModel: ViewModel() {
      * Initializes all uninitialized properties,
      * it also resets all the shared properties in the viewModel
      */
-    fun reset(){
+    fun reset() {
         _date.value = pickupDates[0]
         _quantity.value = 1
         _total.value = ""
         _name.value = ""
         _phoneNumber.value = ""
         _address.value = ""
+        _vegetableName.value = ""
     }
 
-    fun setName(name: String){
+    fun setVegetableName(name: String) {
+        _vegetableName.value = name
+    }
+
+    fun setName(name: String) {
         _name.value = name
+            .replaceFirstChar { char -> char.uppercase() }
     }
 
-    fun setPhoneNumber(phone: String){
+    fun setPhoneNumber(phone: String) {
         _phoneNumber.value = phone
     }
 
-    fun setAddress(address: String){
+    fun setAddress(address: String) {
         _address.value = address
     }
 
-    fun setQuantity(value: Int){
-        _quantity.value=value
-        calculateTotal()
-    }
-    fun setDate(value: String){
-        _date.value=value
+    fun setQuantity(value: Int) {
+        _quantity.value = value
         calculateTotal()
     }
 
-    fun isSameDayPickup(): Boolean{
+    fun setDate(value: String) {
+        _date.value = value
+        calculateTotal()
+    }
+
+    fun isSameDayPickup(): Boolean {
         return _date.value == pickupDates[0]
     }
 
     /**
      * Calculates the total price and formats it to the appropriate currency
      */
-    fun calculateTotal(){
+    fun calculateTotal() {
         var price = _quantity.value?.times(VEGETABLE_PRICE)
-        if (isSameDayPickup()){
+        if (isSameDayPickup()) {
             price?.let { price += SAME_DAY_PICKUP_PRICE }
         }
         _total.value = formatCurrency(price!!)
@@ -94,7 +103,7 @@ class VegViewModel: ViewModel() {
     /**
      * Returns a currency formatted version of the value provided
      */
-    fun formatCurrency(value: Double): String{
+    fun formatCurrency(value: Double): String {
         return NumberFormat.getCurrencyInstance().format(value)
     }
 
