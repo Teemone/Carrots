@@ -22,6 +22,10 @@
     <string name="name">Name</string>
     <string name="phone">Phone number</string>
     <string name="vegetable">Vegetable</string>
-    <string name="order_summary">Vegetable</string>
+    <string name="order_summary">Order summary</string>
+    <string name="email_subject">New vegetable order for %s</string>
+    <string name="email_body">
+        Vegetable: %1$s\nQuantity: %2$s\nPickup date: %3$s\nPhone number: %4$s\nAddress: %5$s\n\nThanks.
+    </string>
     <string name="provide_details">Please provide the missing details</string>
 </resources>
