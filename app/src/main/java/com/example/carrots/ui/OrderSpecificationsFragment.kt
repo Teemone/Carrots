@@ -53,17 +53,19 @@ class OrderSpecificationsFragment : Fragment() {
         tvSameDay = binding.tvSameDayPickup
         cgPickupDate = binding.cgPickupDate
         cgQuantity = binding.cgQuantity
+        sharedViewModel.setVegetableName(item.name)
 
 
         tvSameDay.text = getString(
             R.string.same_day_pickup,
-            sharedViewModel.formatCurrency(SAME_DAY_PICKUP_PRICE))
+            sharedViewModel.formatCurrency(SAME_DAY_PICKUP_PRICE)
+        )
 
         /*
         Populate text attribute of each chip with the pickup date
          */
-        repeat(4){
-            index -> (cgPickupDate[index] as Chip).text = sharedViewModel.pickupDates[index]
+        repeat(4) { index ->
+            (cgPickupDate[index] as Chip).text = sharedViewModel.pickupDates[index]
         }
 
         handleChipGroups()
@@ -73,14 +75,13 @@ class OrderSpecificationsFragment : Fragment() {
     /**
      * Adds an onCheckedChangedListener to the ChipGroups and handles any changes
      */
-    private fun handleChipGroups(){
-        cgPickupDate.setOnCheckedStateChangeListener {
-                group, checkedIds ->
+    private fun handleChipGroups() {
+        cgPickupDate.setOnCheckedStateChangeListener { group, checkedIds ->
             /*
             Check if they're any checked ids before initialization,
             prevents indexOutOfBoundsException
              */
-            if (checkedIds.isNotEmpty()){
+            if (checkedIds.isNotEmpty()) {
                 val chip = group.findViewById<Chip>(checkedIds[0])
                 sharedViewModel.setDate(chip.text.toString())
 
@@ -90,17 +91,16 @@ class OrderSpecificationsFragment : Fragment() {
                     tvSameDay.visibility = View.INVISIBLE
                 }
             }
-                sharedViewModel.calculateTotal()
+            sharedViewModel.calculateTotal()
 
         }
 
-        cgQuantity.setOnCheckedStateChangeListener {
-                group, checkedIds ->
+        cgQuantity.setOnCheckedStateChangeListener { group, checkedIds ->
             /*
             Check if they're any checked ids before initialization,
             prevents indexOutOfBoundsException
              */
-            if (checkedIds.isNotEmpty()){
+            if (checkedIds.isNotEmpty()) {
                 val chip = group.findViewById<Chip>(checkedIds[0])
                 sharedViewModel.setQuantity(chip.text.toString().toInt())
                 sharedViewModel.calculateTotal()
@@ -113,7 +113,7 @@ class OrderSpecificationsFragment : Fragment() {
     /**
      * Navigate to the next screen
      */
-    fun next(){
+    fun next() {
         findNavController()
             .navigate(R.id.action_orderSpecificationsFragment_to_contactInformationFragment)
     }
@@ -121,7 +121,7 @@ class OrderSpecificationsFragment : Fragment() {
     /**
      * Cancel the order and return to the home fragment
      */
-    fun cancel(){
+    fun cancel() {
         sharedViewModel.reset()
         findNavController().navigate(R.id.action_orderSpecificationsFragment_to_homeFragment)
     }
