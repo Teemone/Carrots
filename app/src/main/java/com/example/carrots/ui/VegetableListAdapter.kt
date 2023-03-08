@@ -10,7 +10,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.carrots.R
 
-class VegetableListAdapter(private val items: ArrayList<Vegetable>):
+class VegetableListAdapter(private val items: ArrayList<Vegetable>) :
     RecyclerView.Adapter<VegetableListAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -24,8 +24,10 @@ class VegetableListAdapter(private val items: ArrayList<Vegetable>):
      */
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context)
-            .inflate(R.layout.recycler_view_item, parent, false))
+        return ViewHolder(
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.recycler_view_item, parent, false)
+        )
     }
 
     override fun getItemCount(): Int = items.size
@@ -36,7 +38,10 @@ class VegetableListAdapter(private val items: ArrayList<Vegetable>):
 
         holder.btnAdd.setOnClickListener {
             val action = HomeFragmentDirections
-                .actionHomeFragmentToOrderSpecificationsFragment(id = position, items[position].name)
+                .actionHomeFragmentToOrderSpecificationsFragment(
+                    id = position,
+                    items[position].name
+                )
 
             holder.itemView
                 .findNavController()
