@@ -174,14 +174,12 @@
 
         <Button
             android:id="@+id/btnCancel"
-            style="?attr/materialButtonOutlinedStyle"
+            style="@style/Theme.Carrots.Button.Outlined"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/m10"
-            android:fontFamily="@font/varela"
             android:onClick="@{() -> orderSpecsFragment.cancel()}"
             android:text="@string/cancel"
-            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/btnNext"
             app:layout_constraintEnd_toStartOf="@+id/btnNext"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
@@ -194,10 +192,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/m10"
-            android:fontFamily="@font/varela"
+            style="@style/Theme.Carrots.Button"
             android:onClick="@{() -> orderSpecsFragment.next()}"
             android:text="@string/next"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/btnCancel"
             app:layout_constraintTop_toBottomOf="@+id/tvSubtotal" />
